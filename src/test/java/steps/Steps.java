@@ -3,6 +3,7 @@ package steps;
 import io.restassured.response.Response;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 public class Steps {
@@ -12,6 +13,10 @@ public class Steps {
 
     public static void checkFieldNotNull(Response response, String fieldPath){
         assertThat(response.then().extract().path(fieldPath).toString()).isNotNull();
-        assertThat(response.then().extract().path(fieldPath).toString()).isNotEqualTo("").contains("");
+        assertThat(response.then().extract().path(fieldPath).toString()).isNotEqualTo("");
+    }
+
+    public static void checkFiledIsNull(Response response, String fieldPath){
+        assertNull(response.then().extract().path(fieldPath));
     }
 }
