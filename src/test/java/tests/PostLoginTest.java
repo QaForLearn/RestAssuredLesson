@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 
 import static methods.FirstTestRestAssured.postLogin;
+import static steps.Steps.checkFieldNotNull;
 import static util.LoginFactory.getLoginRequest;
 
 public class PostLoginTest {
@@ -14,7 +15,6 @@ public class PostLoginTest {
     @Test
     void postLoginTest(){
        Response postResponse = postLogin(loginDto);
-       LoginDto[] getResponseAsList = postResponse.as(LoginDto[].class);
-       assert getResponseAsList.length==5;
+       checkFieldNotNull(postResponse, "token");
     }
 }
