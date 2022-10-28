@@ -2,6 +2,7 @@ package methods;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
@@ -47,6 +48,8 @@ public class FirstTestRestAssured {
             return given()
                     .log()
                     .all()
+                    .contentType(ContentType.JSON)
+                    .accept(ContentType.JSON)
                     .when()
                     .body(objectMapper.valueToTree(body))
                     .post("/login")
