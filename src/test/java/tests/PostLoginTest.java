@@ -17,7 +17,6 @@ import static util.LoginFactory.getLoginRequest;
 public class PostLoginTest {
     static LoginDto loginDto = getLoginRequest();
 
-
     @ParameterizedTest(name = "Проверка логина с именем \"{0}\", и паролем \"{1}\"")
     @ValueSource(strings = {"Sergei", "Vlad"})
     void postValueSourceTest(String name){
@@ -57,4 +56,5 @@ public class PostLoginTest {
         loginDto.setUserName(username);
         postLogin(loginDto);
     }
+
 }

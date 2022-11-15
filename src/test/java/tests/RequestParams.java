@@ -1,5 +1,5 @@
 package tests;
 
 public enum RequestParams {
-    Sergei, Vlad
+    SERGEI, VLAD
 }
