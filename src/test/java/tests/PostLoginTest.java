@@ -1,7 +1,11 @@
 package tests;
 
 import dto.LoginDto;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
@@ -13,7 +17,10 @@ import static methods.FirstTestRestAssured.postLogin;
 import static steps.Steps.checkFieldNotNull;
 import static steps.Steps.checkFieldValue;
 import static util.LoginFactory.getLoginRequest;
-
+@DisplayName("Второй сьют")
+@Epic("QA Learn")
+@Feature("RestAssured")
+@Story("Allures")
 public class PostLoginTest {
     static LoginDto loginDto = getLoginRequest();
 

@@ -1,6 +1,8 @@
 package methods;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -12,7 +14,6 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static util.LoginFactory.getLoginRequest;
 
 public class FirstTestRestAssured {
-        @Test
         void getTest(){
             RestAssured.baseURI = "https://reqres.in/api/users";
             given()
@@ -42,10 +43,12 @@ public class FirstTestRestAssured {
 
 
 
+        @Step("Отправка запроса и получение ответа")
         public static Response postLogin(Object body){
             RestAssured.baseURI = "https://reqres.in/api";
             ObjectMapper objectMapper = new ObjectMapper();
             return given()
+                    .filter(new AllureRestAssured())
                     .log()
                     .all()
                     .contentType(ContentType.JSON)
